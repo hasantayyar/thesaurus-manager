@@ -6,8 +6,7 @@
     <title>Thesaurus-manager by hasantayyar</title>
 
     <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="javascripts/scale.fix.js"></script>
+    <link rel="stylesheet" href="stylesheets/github-light.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -16,38 +15,95 @@
   <body>
     <div class="wrapper">
       <header>
-        <h1 class="header">Thesaurus-manager</h1>
-        <p class="header">thesaurus-manager app with laravel + neo4j</p>
+        <h1>Thesaurus-manager</h1>
+        <p>thesaurus-manager app with laravel + neo4j</p>
+
+        <p class="view"><a href="https://github.com/hasantayyar/thesaurus-manager">View the Project on GitHub <small>hasantayyar/thesaurus-manager</small></a></p>
+
 
         <ul>
-          <li class="download"><a class="buttons" href="https://github.com/hasantayyar/thesaurus-manager/zipball/master">Download ZIP</a></li>
-          <li class="download"><a class="buttons" href="https://github.com/hasantayyar/thesaurus-manager/tarball/master">Download TAR</a></li>
-          <li><a class="buttons github" href="https://github.com/hasantayyar/thesaurus-manager">View On GitHub</a></li>
+          <li><a href="https://github.com/hasantayyar/thesaurus-manager/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/hasantayyar/thesaurus-manager/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/hasantayyar/thesaurus-manager">View On <strong>GitHub</strong></a></li>
         </ul>
-
-        <p class="header">This project is maintained by <a class="header name" href="https://github.com/hasantayyar">hasantayyar</a></p>
-
-
       </header>
       <section>
         <p><strong>Warning</strong> This project is still under developement.</p>
 
+<p><a href="https://drone.io/github.com/okulbilisim/thesaurus-manager/latest"><img src="https://drone.io/github.com/okulbilisim/thesaurus-manager/status.png?latest" alt="Build Status"></a>  <a href="http://dx.doi.org/10.5281/zenodo.11398"><img src="https://zenodo.org/badge/5719/okulbilisim/thesaurus-manager.png" alt="DOI"></a></p>
+
 <h1>
-<a name="open-thesaurus-manager" class="anchor" href="#open-thesaurus-manager"><span class="octicon octicon-link"></span></a>Open Thesaurus Manager</h1>
+<a id="open-thesaurus-manager" class="anchor" href="#open-thesaurus-manager" aria-hidden="true"><span class="octicon octicon-link"></span></a>Open Thesaurus Manager</h1>
 
 <p>If you want to create your own thesaurus this project will be a super fast solution for you.</p>
 
 <h2>
-<a name="install" class="anchor" href="#install"><span class="octicon octicon-link"></span></a>Install</h2>
+<a id="requirements" class="anchor" href="#requirements" aria-hidden="true"><span class="octicon octicon-link"></span></a>Requirements</h2>
 
-<pre><code>composer install
-php artisan migrate
-php artisan db:seed
+<ul>
+<li>Php 5.4</li>
+<li>Mysql</li>
+<li>Neo4j</li>
+</ul>
+
+<p>You may not need a web server for development. Laravel's artisan tool will be enough for creating a built-in web server like : <code>php artisan serve --port 8081</code></p>
+
+<h2>
+<a id="install" class="anchor" href="#install" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install</h2>
+
+<p><strong>Clone project to your machine.</strong></p>
+
+<pre><code>$ git clone git@github.com:okulbilisim/thesaurus-manager.git
+</code></pre>
+
+<p><strong>Create a database named 'thesaurus'</strong></p>
+
+<pre><code>$ mysql -uroot -proot -e "create database thesaurus charset utf8"
+</code></pre>
+
+<p><strong>Install composer packages</strong></p>
+
+<div class="highlight highlight-sh"><pre>$ composer install</pre></div>
+
+<p><strong>Update your settings</strong></p>
+
+<pre><code>$ vim app/config/database.php
+</code></pre>
+
+<p><strong>Run db migration commands</strong></p>
+
+<pre><code>$ php artisan migrate --package=cartalyst/sentry
+</code></pre>
+
+<p><strong>Add sample data</strong></p>
+
+<pre><code>php artisan db:seed
 php artisan sampledata
 </code></pre>
 
+<p><strong>Sample users</strong></p>
+
+<ul>
+<li>Admin
+
+<ul>
+<li>email: <a href="mailto:admin@localhost.com">admin@localhost.com</a><br>
+</li>
+<li>password: admin</li>
+</ul>
+</li>
+<li>Editor
+
+<ul>
+<li>email: <a href="mailto:editor@localhost.com">editor@localhost.com</a>
+</li>
+<li>password: editor</li>
+</ul>
+</li>
+</ul>
+
 <h2>
-<a name="cli-tools" class="anchor" href="#cli-tools"><span class="octicon octicon-link"></span></a>Cli tools</h2>
+<a id="cli-tools" class="anchor" href="#cli-tools" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cli tools</h2>
 
 <p><strong>Add sample data to test</strong></p>
 
@@ -64,20 +120,14 @@ php artisan sampledata
 <pre><code>php artisan suggestions:google &lt;word&gt;
 </code></pre>
 
-<p><img src="https://raw.githubusercontent.com/hasantayyar/thesaurus-manager/master/docs/grapheditor_demo.png" alt="preview"></p>
-
-<h2>
-<a name="demo-user" class="anchor" href="#demo-user"><span class="octicon octicon-link"></span></a>Demo User</h2>
-
-<pre><code>email: user@localhost.com
-password: user
-</code></pre>
+<p><img src="https://raw.githubusercontent.com/hasantayyar/thesaurus-manager/master/docs/alpha_preview3.png" alt="preview"></p>
       </section>
       <footer>
-        <p><small>Hosted on <a href="http://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+        <p>This project is maintained by <a href="https://github.com/hasantayyar">hasantayyar</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
       </footer>
     </div>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-		
+    <script src="javascripts/scale.fix.js"></script>
+    
   </body>
 </html>
